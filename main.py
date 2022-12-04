@@ -6,7 +6,7 @@ APP_PORT = 8000
 class SimpleGetHandler(BaseHTTPRequestHandler):
     def _set_headers(self):
         self.send_response(200)
-        self.send_header('Content-type', 'text/html; charset=utf-8')
+        self.send_header("Content-type", "text/html; charset=utf-8")
         self.end_headers()
 
     def _html(self, message):
@@ -17,7 +17,7 @@ class SimpleGetHandler(BaseHTTPRequestHandler):
                    f'</html>')
         return content.encode('utf8')
 
-    def do_Get(self):
+    def do_GET(self):
         self._set_headers()
         message = 'Привет Мир'
         self.wfile.write(self._html(message))
